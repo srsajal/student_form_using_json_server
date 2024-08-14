@@ -1,0 +1,180 @@
+<div class="card custom-card">
+    <form [formGroup]="userForm">
+        <p-splitter class="splitter" [panelSizes]="[83, 1]" [style]="{ height: 'auto' }" styleClass="mb-5">
+            <ng-template pTemplate>
+                <div class="col flex align-items-center justify-content-center">
+
+                    <div class="col-12">
+                        <table class="tab">
+                            <thead>
+                                <tr>
+                                    <th>Serial No.</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Date of Birth</th>
+                                    <th>Gender</th>
+                                    <th>Phone No.</th>
+                                    <th>Email</th>
+                                    <th>Address</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody *ngIf="(checkAdm == 2); else normalView">
+                                <tr *ngFor="let data of stulist;let sr = index">
+                                    <td>{{sr+1}}</td>
+                                    <td>{{data.fname}}</td>
+                                    <td>{{data.lname}}</td>
+                                    <td>{{data.date}}</td>
+                                    <td>{{data.gender}}</td>
+                                    <td>{{data.mobile}}</td>
+                                    <td>{{data.email}}</td>
+                                    <td>{{data.address.city}}, {{data.address.post}},<br>{{data.address.ps}},
+                                        {{data.address.pinno}},
+                                        {{data.address.state.name}}</td>
+                                    <td id="actionbutt">
+                                        <p-button id="editbutt" label="Edit" class="btn btn-success"
+                                            (onClick)="editData(data.id, data)" />
+                                        <p-button id="delbutt" label="Delete" (click)="confirm2($event, data.id)"
+                                            severity="danger" class="btn btn-success" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <ng-template #normalView>
+                                <tbody>
+                                    <tr *ngFor="let data of stulist2;let sr = index">
+                                        <td>{{sr+1}}</td>
+                                        <td>{{data.fname}}</td>
+                                        <td>{{data.lname}}</td>
+                                        <td>{{data.date}}</td>
+                                        <td>{{data.gender}}</td>
+                                        <td>{{data.mobile}}</td>
+                                        <td>{{data.email}}</td>
+                                        <td>{{data.address.city}}, {{data.address.post}},<br>{{data.address.ps}},
+                                            {{data.address.pinno}},
+                                            {{data.address.state.name}}</td>
+                                        <td id="actionbutt">
+                                            <p-button id="editbutt" label="Edit" class="btn btn-success"
+                                                (onClick)="editData(data.id, data)" />
+                                            <p-button id="delbutt" label="Delete" (click)="confirm2($event, data.id)"
+                                                severity="danger" class="btn btn-success" />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </ng-template>
+                        </table>
+                    </div>
+
+                </div>
+            </ng-template> 
+            <ng-template pTemplate>
+                <div class="col flex align-items-center justify-content-center">
+
+                    <!-- <div class="container"> -->
+                    <div class="flex flex-wrap align-items-center justify-content-center">
+                        <!-- <div class="shadow-2 hover:shadow-8 text-center border-round-sm h-6rem surface-overlay p-3 m-3 flex align-items-center justify-content-center font-bold"> -->
+                        <div *ngIf="(checkAdm == 2)" class="addstubutt"><p-button (click)="showDialog()"
+                                label="ADD STUDENT" />
+                        </div>
+                        <p-dialog class="custom-dialog" header="Edit Profile" [closable]="false" [modal]="true"
+                            [(visible)]="visible" [style]="{ width: '50rem' }">
+
+                            <label class="bold">Name of the appliciant* :</label>
+                            <br><br>
+                            <div class="container">
+                                <div class="item1">
+                                    <input id="fnamet" type="text" pInputText formControlName="fname"
+                                        placeholder="First Name" />
+                                    <input id="lnamet" type="text" pInputText formControlName="lname"
+                                        placeholder="Last Name" />
+                                </div>
+                            </div>
+                            <br><br>
+                            <label class="bold">Date of Birth* :</label>
+                            <input class="date" type="date" formControlName="date" id="cal">
+                            <br><br><br>
+                            <div>
+                            <label class="bold">Gender :</label>
+                            
+                                <p-radioButton class="radiom" name="gender" value="Male" formControlName="gender"
+                                    label="Male"></p-radioButton>
+                                <p-radioButton class="radiofo" name="gender" value="Female" formControlName="gender"
+                                    label="Female"></p-radioButton>
+                                <p-radioButton class="radiofo" name="gender" value="Others" formControlName="gender"
+                                    label="Others"></p-radioButton>
+                            </div>
+                            <br><br>
+                            
+                            <label class="bold">Email* : </label>
+                            <label id="pos" class="bold">Password* : </label><br><br>
+
+                            <!-- <div class="card flex justify-content-center"> -->
+                            <input type="email" pInputText formControlName="email" placeholder="abc@gmail.com" />
+                            <!-- </div> --><!-- <div class="card flex justify-content-center"> -->
+                            <input id="posip" type="password" pInputText formControlName="password" placeholder="Password" />
+                            <!-- </div> -->
+                             <br><br>
+                            <label class="bold">Mobile no* :</label><br><br>
+                            <div class="item1">
+                                <p-floatLabel>
+                                    <p-inputNumber [mode]="'decimal'" [useGrouping]="false" inputId="integeronly"
+                                        formControlName="mobile" />
+                                    <label for="number-input">Number</label>
+                                </p-floatLabel>
+                            </div> <br><br>
+                            <div formGroupName="address">
+                                <label class="bold">Address : </label><br><br>
+                                <label class="bold2">City/Village : </label>
+                                <label id="pos" class="bold2">Post : </label>
+                                <br><br>
+                                <div class="card">
+                                    <input pInputText formControlName="city" placeholder="kolkata" />
+                                    <input pInputText id="posip" formControlName="post" placeholder="kolkata" />
+                                </div>
+                                <br><br>
+                                <label class="bold2">Police Station : </label>
+                                <label id="pos" class="bold2">Pin no.* : </label>
+                                <br><br>
+                                <div class="card flex">
+                                    <input pInputText formControlName="ps" placeholder="kolkata" />
+                                    <p-inputNumber id="posip" [mode]="'decimal'" [useGrouping]="false"
+                                        inputId="integeronly" formControlName="pinno" />
+                                </div>
+                                <br><br>
+                                <label class="bold2">State* : </label>
+                                <br><br>
+                                <div class="card flex">
+                                    <p-dropdown [options]="cities" formControlName="state" optionLabel="name"
+                                        placeholder="Select a City" />
+                                </div>
+                            </div>
+
+
+                            <div class="card">
+                                <p-confirmPopup />
+                                <div class="button-container">
+                                    <p-button class="diabutton" label="Cancel" severity="warning"
+                                        (click)="cancel(userForm)" [outlined]="true" (click)="visible = false" />
+                                    <div *ngIf="isSubUp; else elseBlock">
+                                        <p-button class="diabutton" label="Submit" severity="success"
+                                            [disabled]="userForm.invalid" (click)="onSubmit(userForm)" [outlined]="true"
+                                            (click)="visible = false" />
+                                    </div>
+                                    <ng-template #elseBlock>
+                                        <p-button class="diabutton" label="Update" (click)="update(userForm)"
+                                        [disabled]="userForm.invalid"[outlined]="true" (click)="visible = false" />
+                                    </ng-template>
+                                </div>
+                            </div>
+                            <h5><span>The fields with asterisk(*) can't be empty</span></h5>
+                        </p-dialog>
+                        <!-- </div> -->
+                    </div>
+                    <p-toast></p-toast>
+                    <!-- </div> -->
+
+                </div>
+
+            </ng-template>
+        </p-splitter>
+    </form>
+</div>

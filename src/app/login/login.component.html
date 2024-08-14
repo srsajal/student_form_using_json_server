@@ -1,0 +1,7 @@
+<div class="logbutt">
+    <p-button class="lbutt" (onClick)="showLog()">Log in</p-button>
+</div>
+<div *ngIf="visible" class="logbutts">
+    <p-button class="slbutt" routerLink="slogin">Login as student</p-button>
+    <p-button class="albutt" routerLink="alogin">Login as admin</p-button>
+</div>

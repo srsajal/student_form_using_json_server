@@ -1,0 +1,47 @@
+<div class="log">
+    <div class="surface-card p-4 shadow-8 border-round w-full lg:w-6">
+        <div class="text-center mb-5">
+            <!-- <img src="assets/images/blocks/logos/hyper.svg" alt="Image" height="50" class="mb-3"> -->
+            <div class="text-900 text-3xl font-medium mb-3">Welcome Student</div>
+            <!-- <span class="text-600 font-medium line-height-3">Don't have an account?</span>
+            <a class="font-medium no-underline ml-2 text-blue-500 cursor-pointer">Create today!</a> -->
+        </div>
+        <form [formGroup]="passForm">
+            <div>
+                <label class="bold">Email* : </label><br><br>
+                <!-- <div class="card flex justify-content-center"> -->
+                <input type="email" pInputText formControlName="email" placeholder="abc@gmail.com" />
+                <!-- </div> -->
+                <br><br>
+                <label class="bold">Date of Birth* :</label><br><br>
+                <input type="date" formControlName="date" id="cal">
+                <br><br>
+                <label class="bold">Mobile no* :</label><br><br>
+                <div class="item1">
+                    <p-floatLabel>
+                        <p-inputNumber [mode]="'decimal'" [useGrouping]="false" inputId="integeronly"
+                            formControlName="mobile" />
+                        <label for="number-input">Number</label>
+                    </p-floatLabel>
+                </div> <br>
+                <label class="bold">Enter new Password*:</label><br><br>
+                <!-- <div class="card flex justify-content-center"> -->
+                <input type="password" pInputText formControlName="password" placeholder="Password" />
+
+                <div class="card">
+                    <p-confirmPopup />
+                    <div class="button-container">
+                        <p-button class="diabutton" label="Cancel" severity="warning" (click)="cancel(passForm)"
+                            [outlined]="true" />
+                        <div>
+                            <p-button class="diabutton" label="Submit" severity="success" [disabled]="passForm.invalid"
+                                (click)="onSubmit(passForm)" [outlined]="true" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <!-- <h5><span>The fields with asterisk(*) can't be empty</span></h5> -->
+    </div>
+</div>
+<!-- <button pButton pRipple label="Sign In" icon="pi pi-user" class="w-full" (click)="login()"></button> -->

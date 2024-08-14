@@ -1,0 +1,42 @@
+{
+  "studentList": [
+    {
+      "fname": "Sanju",
+      "lname": "giri",
+      "date": "2003-02-09",
+      "gender": "Male",
+      "mobile": 89454646464,
+      "email": "afd@gmail.com",
+      "password": "asd",
+      "address": {
+        "city": "kolkata",
+        "post": "raharad",
+        "ps": "kharadaha",
+        "pinno": 700118,
+        "state": {
+          "name": "Bihar"
+        }
+      },
+      "id": "80e7"
+    },
+    {
+      "fname": "Sajal",
+      "lname": "Giri",
+      "date": "2005-01-15",
+      "gender": "Male",
+      "mobile": 123456,
+      "email": "test@gmail.com",
+      "password": "abcd",
+      "address": {
+        "city": "kolkata",
+        "post": "kolkata",
+        "ps": "kolkata",
+        "pinno": 700118,
+        "state": {
+          "name": "West Bengal"
+        }
+      },
+      "id": "09ce"
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+.sajal {
+    text-align: center;
+    background-color: aqua;
+    
+}
+
+.diabutton {
+    size: 0.5%;
+    text-align: right;
+}
+
+
+th{
+    border: 2px black solid;
+    padding: 1%;
+
+}
+
+td {
+    border: 1px black solid;
+    padding: 1%;
+}
+
+.tab {
+    border-collapse: collapse;
+    width: 400%;
+    max-width: 1350px;
+    border: 2px black solid;
+}
+
+#delbutt{
+    margin-left: 5%;
+}
+
+#actionbutt {
+    text-align: center;
+}
+
+.button-container {
+    display: flex;
+    align-items: right;
+    justify-content: flex-end; 
+    gap: 1%;
+}
+
+.control{
+    margin-left: auto;
+}
+
+#cal{
+    font-size: 140%;
+}
+.bold{
+    font-size: 150%;
+}
+
+.bold2{
+    font-size: 110%;
+}
+#pos{
+    margin-left: 29%;
+}
+#posip{
+    margin-left: 10%;
+}
+#lnamet{
+    margin-left: 15%;
+}
+#fnamet{
+    margin-left: 1%;
+}
+.radiofo{
+    margin-left: 2%;
+}
+.radiom{
+    margin-left: 5%;
+}
+.date{
+    margin-left: 5%;
+}
+h5{
+    text-align: center;
+}
+h5 span{
+    color: red;
+}

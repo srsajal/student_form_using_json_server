@@ -1,0 +1,28 @@
+.log{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2%;
+}
+#delbutt{
+    margin-left: 5%;
+}
+.diabutton {
+    size: 0.5%;
+    text-align: right;
+}
+.button-container {
+    display: flex;
+    align-items: right;
+    justify-content: flex-end; 
+    gap: 1%;
+}
+#cal{
+    font-size: 140%;
+}
+// h5{
+//     text-align: center;
+// }
+// h5 span{
+//     color: red;
+// }
